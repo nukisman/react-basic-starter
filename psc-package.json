@@ -1,5 +1,5 @@
 {
-  "name": "sandbox-purescript-react-basic",
+  "name": "react-basic-starter-dhall",
   "set": "local",
   "source": "https://github.com/purescript/package-sets.git",
   "depends": [
