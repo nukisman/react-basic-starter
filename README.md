@@ -12,7 +12,11 @@ Fork or clone this repo to begin
 
 0. `yarn` or `npm i`
 0. Fix `packages.dhall`, `psc-package.json` (`depends` and `exclude`) as you need
-0. `./insdhall.sh`
+0. Run `./insdhall.sh` to install PureScript dependencies and generate local docs
+
+## Show docs
+
+`yarn show-docs` or just open `generated-docs/index.html`
 
 ## Develop
 
