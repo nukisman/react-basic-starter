@@ -112,6 +112,7 @@ module.exports = (_env, options) => ({
                 bundle: false, // isProd(options),
                 warnings: true,
                 watch: options.watch,
+                pscPackage: true,
                 pscArgs: {
                   // Set this to true and rebuild with
                   // `rm -rf output && npx pulp build -- --sourcemaps`

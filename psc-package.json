@@ -1,0 +1,14 @@
+{
+  "name": "sandbox-purescript-react-basic",
+  "set": "local",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "console",
+    "effect",
+    "aff",
+    "prelude",
+    "psci-support",
+    "react-basic",
+    "web-html"
+  ]
+}

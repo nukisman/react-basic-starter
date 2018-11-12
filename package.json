@@ -4,17 +4,17 @@
   "description": "An example react-basic project",
   "repository": "lumihq/react-basic-starter",
   "scripts": {
-    "start": "webpack-dev-server -wd --port 3000",
-    "start-public": "webpack-dev-server -wd --port 3000 --host 0.0.0.0",
+    "start": "webpack-dev-server -wd --port 5000",
+    "start-public": "webpack-dev-server -wd --port 5000 --host 0.0.0.0",
     "build": "webpack -p",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "build:purs": "pulp build",
-    "pscid:build": "pulp build",
-    "pscid:test": "pulp test",
-    "test": "pulp test",
+    "build:purs": "pulp --psc-package build",
+    "pscid:build": "pulp --psc-package build",
+    "pscid:test": "pulp --psc-package test",
+    "test": "pulp --psc-package test",
     "clean": "rm -rf output build",
-    "clean:everything": "npm run clean && rm -rf node_modules bower_components"
+    "clean:everything": "yarn run clean && rm -rf node_modules"
   },
   "dependencies": {
     "react": "16.6.1",
