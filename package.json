@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An example react-basic project",
   "repository": "lumihq/react-basic-starter",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server -wd --port 5000",
     "start-public": "webpack-dev-server -wd --port 5000 --host 0.0.0.0",
@@ -14,7 +15,9 @@
     "pscid:test": "pulp --psc-package test",
     "test": "pulp --psc-package test",
     "clean": "rm -rf output build",
-    "clean:everything": "yarn run clean && rm -rf node_modules"
+    "clean:everything": "yarn run clean && rm -rf node_modules",
+    "docs": "pulp --psc-package docs -- --format html",
+    "show-docs": "google-chrome generated-docs/index.html 2>/dev/null"
   },
   "dependencies": {
     "react": "16.6.1",
