@@ -17,7 +17,11 @@
     "clean": "rm -rf output build",
     "clean:everything": "yarn run clean && rm -rf node_modules",
     "docs": "pulp --psc-package docs -- --format html",
-    "show-docs": "google-chrome generated-docs/index.html 2>/dev/null"
+    "psc-show-docs": "google-chrome generated-docs/index.html 2>/dev/null",
+    "psc-set-gen": "./psc-conf/scripts.sh set-gen",
+    "psc-deps": "./psc-conf/scripts.sh deps",
+    "psc-dep-add": "./psc-conf/scripts.sh dep-add",
+    "psc-dep-rm": "./psc-conf/scripts.sh dep-rm"
   },
   "dependencies": {
     "react": "16.6.1",

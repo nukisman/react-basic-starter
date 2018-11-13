@@ -5,11 +5,12 @@
   "depends": [
     "console",
     "effect",
-    "aff",
     "prelude",
     "psci-support",
     "react-basic",
     "web-html"
   ],
-  "exclude": ["chanpon"]
+  "exclude": [
+    "chanpon"
+  ]
 }

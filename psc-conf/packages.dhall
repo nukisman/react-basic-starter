@@ -18,6 +18,17 @@ in let overrides =
           ]
           "https://github.com/lumihq/purescript-react-basic.git"
           "v5.0.0"
+    , redox =
+        mkPkg
+          [ "free"
+          , "ordered-collections"
+          , "console"
+          , "aff"
+          , "typelevel-prelude"
+          , "prelude"
+          ]
+          "https://github.com/coot/purescript-redox"
+          "v8.0.0"
     }
 in pkgs
    ⫽ overrides
