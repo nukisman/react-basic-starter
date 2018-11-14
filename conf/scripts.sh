@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 NAME='local'
 TARGET=.psc-package/$NAME/.set/packages.json
-CONF=./psc-conf
+CONF=./conf
 TMP_GEN=/tmp/packages-gen.json
 TMP_EXC=/tmp/packages-exc.json
 TMP_PSC=/tmp/psc-package.json

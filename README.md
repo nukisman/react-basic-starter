@@ -6,22 +6,44 @@ Fork or clone this repo to begin
 
 * Install [dhall-to-json](https://github.com/dhall-lang/dhall-lang/wiki/Getting-started%3A-Generate-JSON-or-YAML#installation)
 * Install [jq](https://stedolan.github.io/jq/)
-* Install [yarn](https://yarnpkg.com/en/docs/install) (or [npm](https://www.npmjs.com/get-npm))
+* Install [yarn](https://yarnpkg.com/en/docs/install) (also you can use [npm](https://www.npmjs.com/get-npm) instead of yarn)
 
-## Install dependencies
+## Install npm dependencies
 
-0. `yarn` or `npm i`
-0. Fix `packages.dhall`, `psc-package.json` (`depends` and `exclude`) as you need
-0. Run `./insdhall.sh` to install PureScript dependencies and generate local docs
+0. `yarn`
 
-## Show docs
+## Local package set
 
-`yarn show-docs` or just open `generated-docs/index.html`
+### Generate local package set
+
+`yarn set-gen` 
+
+### Configure local package set
+
+Edit `conf/packages.dhall` and `psc-package.json/exclude` field
+
+## Project dependencies
+
+### Configure project dependencies
+
+Edit `psc-package.json/depends` manually
+
+or use `yarn dep-add PKG` / `yarn dep-rm PKG` - this commands save value of `psc-package.json/exclude` field (in contrast of `psc-package install PKG` / `psc-package uninstall PKG`)
+
+### Verify dependencies and generate docs for it
+
+`yarn deps` 
+
+### Show docs for dependencies
+
+`yarn show-docs` 
+
+or just open `generated-docs/index.html`
 
 ## Develop
 
-`yarn start` or `npm start`
+`yarn start`
 
 ## Build and deploy (gh-pages)
 
-`yarn deploy` or `npm run deploy`
+`yarn deploy` 
