@@ -14,13 +14,13 @@ Fork or clone this repo to begin
 
 ## Local package set
 
-### Generate local package set
-
-`yarn set-gen` 
-
 ### Configure local package set
 
 Edit `conf/packages.dhall` and `psc-package.json/exclude` field
+
+### Generate local package set
+
+`yarn set-gen` 
 
 ## Project dependencies
 
