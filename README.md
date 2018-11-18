@@ -47,3 +47,7 @@ or just open `generated-docs/index.html`
 ## Build and deploy (gh-pages)
 
 `yarn deploy` 
+
+## REPL
+
+`yarn repl`

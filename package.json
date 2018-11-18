@@ -21,7 +21,8 @@
     "set-gen": "./conf/scripts.sh set-gen",
     "deps": "./conf/scripts.sh deps",
     "dep-add": "./conf/scripts.sh dep-add",
-    "dep-rm": "./conf/scripts.sh dep-rm"
+    "dep-rm": "./conf/scripts.sh dep-rm",
+    "repl": "psc-package repl"
   },
   "dependencies": {
     "react": "16.6.1",
