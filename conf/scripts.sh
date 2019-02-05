@@ -5,6 +5,9 @@ CONF=./conf
 TMP_GEN=/tmp/packages-gen.json
 TMP_EXC=/tmp/packages-exc.json
 TMP_PSC=/tmp/psc-package.json
+PSC_PKG="yarn -s psc-package"
+DHALL_TO_JSON="yarn -s dhall-to-json"
+JQ="yarn -s jq"
 
 ##########################################################
 # Set of packages
@@ -12,15 +15,15 @@ TMP_PSC=/tmp/psc-package.json
 
 generateSet() {
   to=$1
-  echo 'Generate package set ...'
-  dhall-to-json --pretty <<< "$CONF/packages.dhall" > $to
+  echo 'Generate package set ...';
+  ${DHALL_TO_JSON} --pretty <<< "$CONF/packages.dhall" > $to
 }
 
 excludeFromSet() {
   from=$1
   to=$2
-  echo "Exclude packages from set:" `jq -nMr '$conf[0].exclude | join(", ")' --slurpfile conf psc-package.json` \
-  && jq -nMr \
+  echo "Exclude packages from set:" `${JQ} -nMr '$conf[0].exclude | join(", ")' --slurpfile conf psc-package.json` \
+  && ${JQ} -nMr \
     --slurpfile pkgs $from \
     --slurpfile conf psc-package.json \
     '$conf[0].exclude | reduce .[] as $item ($pkgs[0]; delpaths([[$item]]))' > $to
@@ -43,11 +46,11 @@ linkSet() {
 
 verifyDeps() {
   echo "Verify dependencies ..."
-  deps=`cat psc-package.json | jq -r '.depends | .[]'`;
+  deps=`cat psc-package.json | ${JQ} -r '.depends | .[]'`;
   for p in $deps;
   do
     echo "> Verify $p";
-    psc-package verify $p;
+    time ${PSC_PKG} verify $p;
   done
 }
 
@@ -55,11 +58,12 @@ verifyDeps() {
 # Project dependencies
 ##########################################################
 
+# TODO: Avoid removing "exclude" field
 depAdd() {
   pkg=$1
-  tmp=`mktemp`
-  psc-package verify $pkg \
-  && jq -n \
+  tmp=`mktemp`;
+  ${PSC_PKG} install $pkg \
+  && ${JQ} -n \
     --arg p $pkg \
     'input | setpath(["depends"]; getpath(["depends"]) + [$p] | unique | sort)' \
     psc-package.json > $tmp \
@@ -69,7 +73,7 @@ depAdd() {
 depRm() {
   pkg=$1
   tmp=`mktemp`
-  jq -n \
+  ${JQ} -n \
     --arg p $pkg \
     'input | setpath(["depends"]; getpath(["depends"]) - [$p] | unique)' \
     psc-package.json > $tmp \
@@ -92,9 +96,8 @@ case "$CMD" in
     && writeSet $TMP_EXC $TARGET \
     && linkSet $TARGET $CONF/packages.json
     ;;
-  deps)
-    verifyDeps \
-    && yarn docs
+  deps-verify)
+    verifyDeps
     ;;
   dep-add)
     depAdd $ARG1

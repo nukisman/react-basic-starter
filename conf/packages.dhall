@@ -1,5 +1,5 @@
-let mkPkg = https://raw.githubusercontent.com/justinwoo/spacchetti/111118/src/mkPackage.dhall
-in let pkgs = https://raw.githubusercontent.com/justinwoo/spacchetti/111118/src/packages.dhall
+let mkPkg = https://raw.githubusercontent.com/justinwoo/spacchetti/20190131/src/mkPackage.dhall
+in let pkgs = https://raw.githubusercontent.com/justinwoo/spacchetti/20190131/src/packages.dhall
 in let overrides =
     { react-basic =
         mkPkg
@@ -17,18 +17,25 @@ in let overrides =
           , "functions"
           ]
           "https://github.com/lumihq/purescript-react-basic.git"
-          "v5.0.0"
-    , redox =
-        mkPkg
-          [ "free"
-          , "ordered-collections"
-          , "console"
-          , "aff"
-          , "typelevel-prelude"
-          , "prelude"
-          ]
-          "https://github.com/coot/purescript-redox"
           "v8.0.0"
+    , simple-ajax =
+        mkPkg
+          [ "prelude"
+          , "console"
+          , "affjax"
+          , "simple-json"
+          ]
+          "https://github.com/dariooddenino/purescript-simple-ajax.git"
+          "v0.5.0"
+    , dom-filereader =
+        mkPkg
+          [ "arraybuffer-types"
+          , "web-html"
+          , "aff"
+          , "web-file"
+          ]
+          "https://github.com/nwolverson/purescript-dom-filereader"
+          "v4.0.0"
     }
 in pkgs
    ⫽ overrides

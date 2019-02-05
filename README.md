@@ -4,13 +4,12 @@ Fork or clone this repo to begin
 
 ## Install tools
 
-* Install [dhall-to-json](https://github.com/dhall-lang/dhall-lang/wiki/Getting-started%3A-Generate-JSON-or-YAML#installation)
-* Install [jq](https://stedolan.github.io/jq/)
 * Install [yarn](https://yarnpkg.com/en/docs/install) (also you can use [npm](https://www.npmjs.com/get-npm) instead of yarn)
+* Install [jq](https://stedolan.github.io/jq/)
 
-## Install npm dependencies
+## (Re)Install npm and dhall dependencies
 
-0. `yarn`
+0. `yarn refresh`
 
 ## Local package set
 
@@ -30,24 +29,37 @@ Edit `psc-package.json/depends` manually
 
 or use `yarn dep-add PKG` / `yarn dep-rm PKG` - this commands save value of `psc-package.json/exclude` field (in contrast of `psc-package install PKG` / `psc-package uninstall PKG`)
 
-### Verify dependencies and generate docs for it
+### Optional: Verify dependencies and generate docs for it
 
-`yarn deps` 
+`yarn deps-verify` (takes VERY LONG TIME !!!) 
 
-### Show docs for dependencies
+### Build Web App
 
-`yarn show-docs` 
+`yarn build`
+
+or manually
+
+* `yarn deps-install` - Install project dependencies
+* `yarn build-purs` - Build PureScript project
+* `yarn build-webpack` - Build web app via webpack
+
+### Documentation
+
+* `yarn docs-build` - build documentation
+* `yarn docs-show` - run it in Chrome
 
 or just open `generated-docs/index.html`
 
 ## Develop
 
+### Configure
+
+Add `127.0.0.1       dev.com` to `/wtc/hosts`
+
+### Start dev server
+
 `yarn start`
 
-## Build and deploy (gh-pages)
-
-`yarn deploy` 
-
-## REPL
+## REPl
 
 `yarn repl`
