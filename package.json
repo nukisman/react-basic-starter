@@ -1,8 +1,8 @@
 {
   "name": "react-basic-starter",
   "version": "2.0.0",
-  "description": "An example react-basic project",
-  "repository": "lumihq/react-basic-starter",
+  "description": "An example dhall and psc-package based react-basic project",
+  "repository": "nukisman/react-basic-starter",
   "license": "MIT",
   "scripts": {
     "refresh": "yarn pre-install && yarn install && yarn post-install && yarn set-gen && yarn deps-install",
