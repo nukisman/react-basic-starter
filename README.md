@@ -9,6 +9,7 @@ Fork or clone this repo to begin
 
 ## (Re)Install npm and dhall dependencies
 
+0. `yarn`
 0. `yarn refresh`
 
 ## Local package set
