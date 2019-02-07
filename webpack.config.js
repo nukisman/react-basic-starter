@@ -10,9 +10,10 @@ const SubresourceIntegrityWebpackPlugin = require("webpack-subresource-integrity
 const ManifestPlugin = require("webpack-manifest-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-const outputPath = "build";
+const outputPath = 'build';
+const publicPath = 'public';
 
-const isProd = ({ mode }) => mode === "production";
+const isProd = ({ mode }) => mode === 'production';
 
 module.exports = (_env, options) => ({
   entry: {
@@ -70,7 +71,8 @@ module.exports = (_env, options) => ({
       filename: "styles.css"
     }),
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: `${publicPath}/index.html`,
+      favicon: `${publicPath}/favicon.ico`
     }),
     new ResourceHintWebpackPlugin(),
     new ScriptExtHtmlWebpackPlugin({
