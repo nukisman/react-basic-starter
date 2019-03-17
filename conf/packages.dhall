@@ -1,3 +1,4 @@
+-- See: https://github.com/spacchetti/spacchetti/releases
 let mkPkg = https://raw.githubusercontent.com/justinwoo/spacchetti/20190131/src/mkPackage.dhall
 in let pkgs = https://raw.githubusercontent.com/justinwoo/spacchetti/20190131/src/packages.dhall
 in let overrides =
